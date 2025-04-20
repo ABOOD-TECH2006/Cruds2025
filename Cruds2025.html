@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cruds || 2025</title>
+    <link rel="icon" href="./img/a7.png" />
+    <link rel="stylesheet" href="Cruds2025.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <script type="text/javascript" src="practice.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="Dark-Light-Buttons">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 -960 960 960"
+          width="24px"
+          fill="#000"
+        >
+          <path
+            d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Z"
+          />
+        </svg>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 -960 960 960"
+          width="24px"
+          fill="#eed233"
+        >
+          <path
+            d="M480-280q-83 0-141.5-58.5T280-480q0-83 58.5-141.5T480-680q83 0 141.5 58.5T680-480q0 83-58.5 141.5T480-280ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 53-55 101 97-57 59Zm-98-550 97-101 59 57-100 96-56-52ZM154-212l101-97 55 53-97 101-59-57Z"
+          />
+        </svg>
+      </div>
+      <div class="main_title">Mobiles & Laptops System</div>
+    </header>
+    <main>
+      <div class="crud">
+        <form action="https://script.google.com/macros/s/AKfycbx-EiYOtNEJ11lk1LBohZRCPoIPn45ASTiem7CzpmXipIZGjA660b1ofFHw53lKieJK1g/exec" id="contact_form" method="post" style="width: 100%" class="form">
+          <input
+            required
+            type="text"
+            name="title"
+            id="title"
+            class="title"
+            placeholder="Title"
+          />
+          <div class="price_container">
+            <input
+              required
+              type="number"
+              name="price"
+              id="price"
+              placeholder="Price"
+            />
+            <input
+              required
+              type="number"
+              name="taxes"
+              id="taxes"
+              placeholder="Taxes"
+            />
+            <input
+              required
+              type="number"
+              name="ads"
+              id="ads"
+              placeholder="Ads"
+            />
+            <input
+              required
+              type="number"
+              name="discount"
+              id="discount"
+              placeholder="Discount"
+            />
+            <small class="total" id="total"></small>
+          </div>
+          <input
+            type="number"
+            name="count"
+            id="count"
+            placeholder="Count"
+            max="99"
+            min="1"
+          />
+          <input
+            required
+            type="text"
+            name="category"
+            id="category"
+            placeholder="Category"
+          />
+          <button type="submit" class="submit" id="submit">Create</button>
+        </form>
+        <div class="outputs">
+          <div class="search_Blocks">
+            <input
+              type="text"
+              name="searchInput"
+              id="search_input"
+              placeholder="Search By Title"
+              onkeyup="SearchData(this.value)"
+            />
+            <div class="search_buttons">
+              <button
+                onclick="getSearchMode(this.id)"
+                id="searchByTitle"
+                type="button"
+                class="searchByName"
+              >
+                search By Title
+              </button>
+              <button
+                onclick="getSearchMode(this.id)"
+                id="searchByCategory"
+                type="button"
+                class="searchByCategory"
+              >
+                search By Category
+              </button>
+            </div>
+          </div>
+          <div id="DeleteAll"></div>
+          <table>
+            <tr>
+              <th>id</th>
+              <th>title</th>
+              <th>price</th>
+              <th>taxes</th>
+              <th>ads</th>
+              <th>discount</th>
+              <th>total</th>
+              <th>category</th>
+              <th>update</th>
+              <th>delete</th>
+            </tr>
+            <tbody id="tbody"></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="confirmation" id="confirmation">
+        <i class="fa-regular fa-circle-xmark" id="closeConfirmation"></i>
+        <h1 class="confirmationMessage">Are You Sure For Deleting All Data?</h1>
+        <div class="containerConfirmationButtons">
+          <button id="Yes">Yes</button>
+          <button >No</button>
+        </div>
+      </div>
+      <!-- ! Create botton for go up  -->
+      <buootn id="btn_up" class="material-symbols-outlined buttonUp">
+        <svg
+          style="align-self: center"
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 -960 960 960"
+          width="24px"
+          fill="#fff"
+        >
+          <path
+            d="M440-727 256-544l-56-56 280-280 280 280-56 57-184-184v287h-80v-287Zm0 487v-120h80v120h-80Zm0 160v-80h80v80h-80Z"
+          />
+        </svg>
+      </buootn>
+    </main>
+  </body>
+</html>

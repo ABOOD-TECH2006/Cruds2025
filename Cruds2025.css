@@ -1,0 +1,290 @@
+:root {
+  --main_color: #1d26a7;
+  --white_color: #fff;
+  --black_color: #000;
+  --big_font_size: 48px;
+  --mian_font_size: 18px;
+  --small_font_size: 14px;
+  --table_background: #000000de;
+  --table_color: #fff;
+}
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: var(--mian_font_size);
+  font-weight: 500;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  scroll-behavior: smooth;
+}
+/* ! The Start Setting The Style For The switch-button For Dark&Light>Mode */
+
+.Dark-Light-Buttons {
+  position: fixed;
+  height: 50px;
+  width: 50px;
+  top: 20px;
+  left: 20px;
+  border-radius: 50%;
+  background-color: rgba(128, 128, 128, 0.253);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.darkMode {
+  background-color: #000;
+  --table_background: #fff;
+  --table_color: #000;
+}
+.Dark-Light-Buttons svg:last-child {
+  display: none;
+}
+.darkMode .Dark-Light-Buttons svg:first-child {
+  display: none;
+}
+.darkMode .Dark-Light-Buttons svg:last-child {
+  display: block;
+}
+/* ! The End Setting The Style For The switch-button For Dark&Light>Mode */
+header {
+  position: static;
+  top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--big_font_size);
+  color: var(--main_color);
+  z-index: 200;
+}
+.main_title {
+  transition: 0.5s ease all;
+  cursor: pointer;
+}
+.main_title:hover {
+  color: blue;
+}
+main {
+  position: relative;
+  top: 3rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.buttonUp {
+  position: fixed;
+  height: 35px;
+  width: 35px;
+  bottom: 20px;
+  right: 30px;
+  background-color: var(--main_color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  cursor: pointer;
+  display: none;
+}
+.showUp{
+  display: flex;
+}
+.crud {
+  width: 80%;
+}
+input {
+  width: 100%;
+  outline: none;
+  margin: 3px;
+  padding: 14px;
+  border-radius: 3px;
+  border-top: none;
+  border: 1px solid var(--main_color);
+}
+input::placeholder {
+  font-weight: 900;
+  letter-spacing: 1.2px;
+}
+.price_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  /* width: 23%; */
+}
+.price_container input {
+  width: 23%;
+}
+.price_container small {
+  position: relative;
+  background-color: red;
+  color: var(--white_color);
+  padding: 2px;
+  border-radius: 3px;
+  letter-spacing: 1.2px;
+}
+.price_container small::before {
+  content: "Total:";
+}
+input:focus {
+  scale: 1.05;
+}
+button {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 1.1px;
+  cursor: pointer;
+  outline: none;
+  border: 1px solid gold;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  padding: 6px;
+  border-radius: 5px;
+  font-style: var(--mian_font_size);
+  font-weight: 600;
+  color: var(--main_color);
+  transition: 0.6s ease;
+}
+.submit,
+.search_buttons button {
+  font-size: var(--mian_font_size);
+  color: rgb(141, 20, 240);
+  font-weight: 700;
+  z-index: 50;
+  overflow: hidden;
+  transition: 0.5s;
+}
+.submit::before,
+.search_buttons button::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: -100%;
+  z-index: -1;
+  transition: 0.5s;
+  opacity: 0.3;
+
+  background-color: rgba(0, 0, 255, 0.521);
+}
+.submit:hover::before,
+.search_buttons button:hover::before {
+  left: 0;
+}
+.submit:hover,
+.search_buttons button:hover {
+  letter-spacing: 5px;
+}
+.search_buttons {
+  margin: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+}
+.search_buttons button::before {
+  background-color: rgb(193, 139, 238);
+}
+table {
+  width: 100%;
+  text-align: center;
+  /* ? the width and the text-algin are pretty important for algining the items  */
+  margin: 10px 0;
+  background-color: var(--table_background);
+  color: var(--table_color);
+  border-radius: 5px;
+}
+table tr th {
+  letter-spacing: 1.3px;
+}
+table tr button {
+  font-size: var(--small_font_size);
+  font-weight: 700;
+}
+table tr button:hover {
+  background-color: rgba(0, 0, 255, 0.363);
+  color: var(--table_color);
+}
+table th {
+  text-transform: uppercase;
+}
+
+table th td {
+  padding: 5px;
+}
+#DeleteAllButton {
+  padding: 7px;
+  letter-spacing: 1.9px;
+  font-size: 1.5rem;
+  color: red;
+  transition: ease 0.5s;
+}
+#DeleteAllButton:hover {
+  color: var(--white_color);
+  background-color: rgb(238, 60, 60);
+}
+/* ! The start of setting Confirmation div */
+.confirmation {
+  position: fixed;
+  width: 500px;
+  height: 130px;
+  background-color: var(--white_color);
+  top: 300px;
+  border: 1px solid var(--main_color);
+  border-radius: 5px;
+  padding: 10px;
+  z-index: 500;
+  display: none;
+}
+.confirmation.show{
+  display: block;
+}
+.confirmation i {
+  color: red;
+  font-size: 30px;
+  cursor: pointer;
+}
+.confirmationMessage {
+  font-size: 26px;
+  margin: 20px;
+}
+.containerConfirmationButtons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+.confirmation .containerConfirmationButtons button {
+  position: relative;
+  overflow: hidden;
+  z-index: 50;
+}
+
+.confirmation .containerConfirmationButtons button::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: -100%;
+  background-color: rgba(255, 0, 0, 0.438);
+  z-index: -1;
+  transition: all 0.5s ease;
+}
+.confirmation .containerConfirmationButtons button:first-child::before{
+  background-color: rgb(89, 206, 89);
+}
+.confirmation .containerConfirmationButtons button:hover::before {
+  left: 0;
+}
+/* ! The End of setting Confirmation div */
